@@ -44,7 +44,15 @@ See [model details](docs/MODEL.md) and [sources](docs/SOURCES.md).
 
 ## Deployment
 
-The Pages workflow checks syntax and runs the numerical and builder tests before deploying only `web/`. Pull requests run checks without deployment. Repository Settings → Pages must use **GitHub Actions** as the source.
+GitHub Pages serves the generated `gh-pages` branch. In Repository Settings → Pages, select **Deploy from a branch**, branch **gh-pages**, folder **/ (root)**. Only the contents of `web/` are published.
+
+After committing a change to `main`, publish a tested static snapshot with:
+
+```sh
+sh scripts/publish-pages.sh
+```
+
+The script runs syntax and numerical/builder checks, requires tracked changes to be committed, then pushes a subtree snapshot to `gh-pages`. Pull requests and the manual **Verify application** workflow can also run the checks on GitHub-hosted runners when those runners are available to the account.
 
 ## Contributing
 
