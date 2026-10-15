@@ -1,0 +1,2 @@
+import {readdirSync} from 'node:fs';import {fileURLToPath} from 'node:url';import {spawnSync} from 'node:child_process';
+for(const file of readdirSync(new URL('../web/',import.meta.url)).filter(x=>!x.startsWith('._')&&x.endsWith('.js'))){const result=spawnSync(process.execPath,['--check',fileURLToPath(new URL('../web/'+file,import.meta.url))],{stdio:'inherit'});if(result.status)process.exit(result.status)}console.log('All application JavaScript parses.');

@@ -1,0 +1,1 @@
+{"name":"airframe-pc-builder","version":"1.0.0","private":true,"type":"module","description":"Open-source 3D PC build, airflow, power and cabling planner","scripts":{"test":"node --import ./tests/register.mjs --test tests/*.test.mjs","check":"node scripts/check.mjs","start":"python3 -m http.server 8742 --bind 127.0.0.1 --directory web"},"engines":{"node":">=22"},"license":"MIT"}
